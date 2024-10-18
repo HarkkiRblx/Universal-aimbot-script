@@ -7,7 +7,7 @@ local mouseLocation = UIS.GetMouseLocation
 
 game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Made By Harkki", Text = "Enjoy !"})
 
-local DeleteMob ={
+local Harkki ={
     GUi = {
         OpenNCloseButton = true; -- Have A Button For It
         KeybindEnable = false; -- If You Want A Bind For The Menu
@@ -69,7 +69,7 @@ local DeleteMob ={
 -- Made By Harkki
 local Fov = Instance.new("ScreenGui")Fov.Name = "Fov" Fov.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui") Fov.ZIndexBehavior = Enum.ZIndexBehavior.Sibling Fov.ResetOnSpawn = false-- i miss you synapse fov
 local TracersG = Instance.new("ScreenGui")TracersG.Name = "Tracers" TracersG.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui") TracersG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling TracersG.ResetOnSpawn = false
-local FOVFFrame = Instance.new("Frame")FOVFFrame.Parent = Fov FOVFFrame.Name = "FOVFFrame" FOVFFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) FOVFFrame.BorderColor3 = Color3.fromRGB(0, 0, 0) FOVFFrame.BorderSizePixel = 0 FOVFFrame.BackgroundTransparency = 1 FOVFFrame.AnchorPoint = Vector2.new(0.5, 0.5) FOVFFrame.Position = UDim2.new(0.5, 0,0.5, 0) FOVFFrame.Size = UDim2.new(0, DeleteMob.Aimbot.Fov, 0, DeleteMob.Aimbot.Fov) FOVFFrame.BackgroundTransparency = 1 
+local FOVFFrame = Instance.new("Frame")FOVFFrame.Parent = Fov FOVFFrame.Name = "FOVFFrame" FOVFFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) FOVFFrame.BorderColor3 = Color3.fromRGB(0, 0, 0) FOVFFrame.BorderSizePixel = 0 FOVFFrame.BackgroundTransparency = 1 FOVFFrame.AnchorPoint = Vector2.new(0.5, 0.5) FOVFFrame.Position = UDim2.new(0.5, 0,0.5, 0) FOVFFrame.Size = UDim2.new(0, Harkki.Aimbot.Fov, 0, Harkki.Aimbot.Fov) FOVFFrame.BackgroundTransparency = 1 
 local UICorner = Instance.new("UICorner")UICorner.CornerRadius = UDim.new(1, 0) UICorner.Parent = FOVFFrame -- Made By Harkki
 local UIStroke = Instance.new("UIStroke")UIStroke.Color = Color3.fromRGB(100,0,100) UIStroke.Parent = FOVFFrame UIStroke.Thickness = 1 UIStroke.ApplyStrokeMode = "Border" game:GetService("StarterGui"):SetCore("SendNotification", {Title = "https://discord.gg/dMfSgaf3bE", Text = "The Discord For More!"})
 local BoxC = Instance.new("ScreenGui", game.Workspace) BoxC.Name = "Box"
@@ -80,7 +80,7 @@ local function AddHighlight(plr)
 	local Highlight = Instance.new("Highlight")
 	Highlight.Parent = Higlight
 	Highlight.Name = plr.Name
-	Highlight.Enabled = DeleteMob.ESP.OutLines.Enabled
+	Highlight.Enabled = Harkki.ESP.OutLines.Enabled
 	local plrchar = plr.Character
 	if plrchar then
 		Highlight.Adornee = plrchar
@@ -92,8 +92,8 @@ local function AddHighlight(plr)
 		while wait(.1) do
 			if plr ~= PLAYER and plr and plr.Character and plr.Character.FindFirstChild(plr.Character, "Humanoid") and plr.Character.Humanoid.Health > 0 then
 
-				if DeleteMob.ESP.OutLines.Enabled == true then
-					if DeleteMob.ESP.OutLines.TeamCheck == true and plr.TeamColor == PLAYER.TeamColor then
+				if Harkki.ESP.OutLines.Enabled == true then
+					if Harkki.ESP.OutLines.TeamCheck == true and plr.TeamColor == PLAYER.TeamColor then
 						Highlight.Enabled = false
 					else
 						Highlight.Enabled = true
@@ -102,21 +102,21 @@ local function AddHighlight(plr)
 					Highlight.Enabled = false
 				end
 
-				if DeleteMob.ESP.OutLines.TeamColor == true then
+				if Harkki.ESP.OutLines.TeamColor == true then
 					Highlight.FillColor = plr.TeamColor.Color 
 				else
-					Highlight.FillColor = DeleteMob.ESP.OutLines.FillCollor
+					Highlight.FillColor = Harkki.ESP.OutLines.FillCollor
 				end
 
-				if DeleteMob.ESP.OutLines.AllwaysShow == true then
+				if Harkki.ESP.OutLines.AllwaysShow == true then
 					Highlight.DepthMode = "AlwaysOnTop" 
 				else
 					Highlight.DepthMode = "Occluded" 
 				end-- Made By Harkki
 
-				Highlight.OutlineTransparency = DeleteMob.ESP.OutLines.OutlineTrancparency
-				Highlight.OutlineColor = DeleteMob.ESP.OutLines.OutlineColor
-				Highlight.FillTransparency = DeleteMob.ESP.OutLines.FillTrancparenct
+				Highlight.OutlineTransparency = Harkki.ESP.OutLines.OutlineTrancparency
+				Highlight.OutlineColor = Harkki.ESP.OutLines.OutlineColor
+				Highlight.FillTransparency = Harkki.ESP.OutLines.FillTrancparenct
 
 				if not (game:GetService"Players":FindFirstChild(plr.Name)) then
 					Higlight:FindFirstChild(plr.Name):Destroy()
@@ -218,7 +218,7 @@ local function AddBox(player) -- Saves FPS
 				info.Adornee = player.Character.HumanoidRootPart
 				forhealth.Adornee = player.Character.HumanoidRootPart
 
-				if DeleteMob.ESP.Box.Box == true then
+				if Harkki.ESP.Box.Box == true then
 					outlines.Visible = true
 				else
 					outlines.Visible = false
@@ -226,20 +226,20 @@ local function AddBox(player) -- Saves FPS
 
 				outlines.BackgroundTransparency = 1
 
-				if DeleteMob.ESP.Box.Health == true then
+				if Harkki.ESP.Box.Health == true then
 					if player.Character:FindFirstChild("Humanoid") ~= nil then
 						healthl.Text = "Health: "..math.floor(player.Character:FindFirstChild"Humanoid".Health)
 						healthbar.bar.Size = UDim2.new(1,0,player.Character:FindFirstChild"Humanoid".Health/player.Character:FindFirstChild"Humanoid".MaxHealth,0)
 					end
-					if DeleteMob.ESP.Box.HealthType == "Text" then
+					if Harkki.ESP.Box.HealthType == "Text" then
 						healthbar.Visible = false
 						healthl.Visible = true
 					end-- Made By Harkki
-					if DeleteMob.ESP.Box.HealthType == "Bar" then
+					if Harkki.ESP.Box.HealthType == "Bar" then
 						healthl.Visible = false
 						healthbar.Visible = true
 					end
-					if DeleteMob.ESP.Box.HealthType == "Both" then
+					if Harkki.ESP.Box.HealthType == "Both" then
 						healthl.Visible = true
 						healthbar.Visible = true
 					end
@@ -249,14 +249,14 @@ local function AddBox(player) -- Saves FPS
 				end
 
 
-				if DeleteMob.ESP.Box.Name then
+				if Harkki.ESP.Box.Name then
 					namelabel.Visible = true
 				else
 					namelabel.Visible = false
 				end
 
 				-- Made By Harkki
-				if DeleteMob.ESP.Box.Distance == true then
+				if Harkki.ESP.Box.Distance == true then
 					distancel.Visible = true
 					if PLAYER.Character and PLAYER.Character:FindFirstChild("HumanoidRootPart") ~= nil then
 						distancel.Text = "Distance: "..math.floor(0.5+(PLAYER.Character:FindFirstChild"HumanoidRootPart".Position - player.Character:FindFirstChild"HumanoidRootPart".Position).magnitude)
@@ -266,7 +266,7 @@ local function AddBox(player) -- Saves FPS
 				end
 
 
-				if DeleteMob.ESP.Box.TeamCheck == true and player.TeamColor == PLAYER.TeamColor then
+				if Harkki.ESP.Box.TeamCheck == true and player.TeamColor == PLAYER.TeamColor then
 					bbg.Enabled = false
 					info.Enabled = false
 					forhealth.Enabled = false
@@ -277,21 +277,21 @@ local function AddBox(player) -- Saves FPS
 				end
 				-- Made By Harkki
 
-				if DeleteMob.ESP.Box.TeamColor == true then
+				if Harkki.ESP.Box.TeamColor == true then
 					left.BackgroundColor3 = player.TeamColor.Color
 					right.BackgroundColor3 = player.TeamColor.Color
 					up.BackgroundColor3 = player.TeamColor.Color
 					down.BackgroundColor3 = player.TeamColor.Color
-					outlines.BackgroundColor3 = DeleteMob.ESP.Box.BoxColor
+					outlines.BackgroundColor3 = Harkki.ESP.Box.BoxColor
 				else
-					outlines.BackgroundColor3 = DeleteMob.ESP.Box.BoxColor
-					left.BackgroundColor3 = DeleteMob.ESP.Box.BoxColor
-					right.BackgroundColor3 = DeleteMob.ESP.Box.BoxColor
-					up.BackgroundColor3 = DeleteMob.ESP.Box.BoxColor
-					down.BackgroundColor3 = DeleteMob.ESP.Box.BoxColor
-					healthl.TextColor3 = DeleteMob.ESP.Box.BoxColor
-					distancel.TextColor3 = DeleteMob.ESP.Box.BoxColor
-					namelabel.TextColor3 = DeleteMob.ESP.Box.BoxColor
+					outlines.BackgroundColor3 = Harkki.ESP.Box.BoxColor
+					left.BackgroundColor3 = Harkki.ESP.Box.BoxColor
+					right.BackgroundColor3 = Harkki.ESP.Box.BoxColor
+					up.BackgroundColor3 = Harkki.ESP.Box.BoxColor
+					down.BackgroundColor3 = Harkki.ESP.Box.BoxColor
+					healthl.TextColor3 = Harkki.ESP.Box.BoxColor
+					distancel.TextColor3 = Harkki.ESP.Box.BoxColor
+					namelabel.TextColor3 = Harkki.ESP.Box.BoxColor
 				end
 
 				if not (game:GetService"Players":FindFirstChild(player.Name)) then
@@ -344,8 +344,8 @@ local function AddTracers(Player) -- Tracers Without Lib OMG !!!!
 
 
 				if OnScreen then
-					if DeleteMob.ESP.Tracers.Enabled == true and OnScreen then
-						if DeleteMob.ESP.Tracers.TeamCheck == true then
+					if Harkki.ESP.Tracers.Enabled == true and OnScreen then
+						if Harkki.ESP.Tracers.TeamCheck == true then
 							if Player.TeamColor == PLAYER.TeamColor then
 								tracer.Visible = false
 							else
@@ -358,10 +358,10 @@ local function AddTracers(Player) -- Tracers Without Lib OMG !!!!
 						tracer.Visible = false
 					end-- Made By Harkki
 
-					if DeleteMob.ESP.Tracers.TeamColor == true then
+					if Harkki.ESP.Tracers.TeamColor == true then
 						tracer.BackgroundColor3 = Player.TeamColor.Color
 					else
-						tracer.BackgroundColor3 = DeleteMob.ESP.Tracers.Color
+						tracer.BackgroundColor3 = Harkki.ESP.Tracers.Color
 					end
 
 					tracer.BorderColor3 = Color3.fromRGB(27, 42, 53)
@@ -385,7 +385,7 @@ end
 
 function isVisible(p, ...)
 	
-	if not (DeleteMob.Aimbot.WallCheck == true) then
+	if not (Harkki.Aimbot.WallCheck == true) then
 		return true
 	end
 	
@@ -398,22 +398,22 @@ function CameraGetClosestToMouse(Fov)
 
 	for i,v in pairs (game:GetService("Players"):GetPlayers()) do
 		if v ~= PLAYER then
-			if DeleteMob.Aimbot.TeamCheck == true then
-				if v.Character and v.Character:FindFirstChild(DeleteMob.Aimbot.AimPart) and v.Character.Humanoid and v.Character.Humanoid.Health > 0 and not (v.Team == PLAYER.Team) then
-					local screen_pos, on_screen = WorldToViewportPoint(CurrentCam, v.Character[DeleteMob.Aimbot.AimPart].Position)
+			if Harkki.Aimbot.TeamCheck == true then
+				if v.Character and v.Character:FindFirstChild(Harkki.Aimbot.AimPart) and v.Character.Humanoid and v.Character.Humanoid.Health > 0 and not (v.Team == PLAYER.Team) then
+					local screen_pos, on_screen = WorldToViewportPoint(CurrentCam, v.Character[Harkki.Aimbot.AimPart].Position)
 					local screen_pos_2D = Vector2.new(screen_pos.X, screen_pos.Y)
 					local new_magnitude = (screen_pos_2D - mouseLocation(UIS)).Magnitude
-					if on_screen and new_magnitude < AimFov and isVisible(v.Character[DeleteMob.Aimbot.AimPart].Position, v.Character.Head.Parent) then
+					if on_screen and new_magnitude < AimFov and isVisible(v.Character[Harkki.Aimbot.AimPart].Position, v.Character.Head.Parent) then
 						AimFov = new_magnitude
 						targetPos = v-- Made By Harkki
 					end
 				end-- Made By Harkki
 			else
-				if v.Character and v.Character:FindFirstChild(DeleteMob.Aimbot.AimPart) and v.Character.Humanoid and v.Character.Humanoid.Health > 0 then
-					local screen_pos, on_screen = WorldToViewportPoint(CurrentCam, v.Character[DeleteMob.Aimbot.AimPart].Position)
+				if v.Character and v.Character:FindFirstChild(Harkki.Aimbot.AimPart) and v.Character.Humanoid and v.Character.Humanoid.Health > 0 then
+					local screen_pos, on_screen = WorldToViewportPoint(CurrentCam, v.Character[Harkki.Aimbot.AimPart].Position)
 					local screen_pos_2D = Vector2.new(screen_pos.X, screen_pos.Y)
 					local new_magnitude = (screen_pos_2D - mouseLocation(UIS)).Magnitude
-					if on_screen and new_magnitude < AimFov and isVisible(v.Character[DeleteMob.Aimbot.AimPart].Position, v.Character.Head.Parent) then
+					if on_screen and new_magnitude < AimFov and isVisible(v.Character[Harkki.Aimbot.AimPart].Position, v.Character.Head.Parent) then
 						AimFov = new_magnitude
 						targetPos = v
 					end
@@ -426,7 +426,7 @@ end
 
 
 local function aimAt(pos, smooth)
-	local AimPart = pos.Character:FindFirstChild(DeleteMob.Aimbot.AimPart)
+	local AimPart = pos.Character:FindFirstChild(Harkki.Aimbot.AimPart)
 	if AimPart then
 		local LookAt = nil
 		local Distance = math.floor(0.5+(PLAYER.Character:FindFirstChild"HumanoidRootPart".Position - pos.Character:FindFirstChild"HumanoidRootPart".Position).magnitude)
@@ -442,8 +442,8 @@ local function aimAt(pos, smooth)
 end
 
 -- Cant Be Botherd To Clean This Up
-local CheatEngineDeleteMob = Instance.new("ScreenGui")
-local DeleteMobF = Instance.new("Frame")
+local CheatEngineHarkki = Instance.new("ScreenGui")
+local HarkkiF = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
 local Name = Instance.new("TextLabel")
 local Line = Instance.new("Frame")
@@ -545,24 +545,24 @@ local TextButton = Instance.new("TextButton")
 
 --Properties:
 
-CheatEngineDeleteMob.Name = "CheatEngineDeleteMob"
-CheatEngineDeleteMob.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-CheatEngineDeleteMob.Enabled = true
-CheatEngineDeleteMob.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-CheatEngineDeleteMob.DisplayOrder = 10
-CheatEngineDeleteMob.ResetOnSpawn = false
+CheatEngineHarkki.Name = "CheatEngineHarkki"
+CheatEngineHarkki.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+CheatEngineHarkki.Enabled = true
+CheatEngineHarkki.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CheatEngineHarkki.DisplayOrder = 10
+CheatEngineHarkki.ResetOnSpawn = false
 -- Made By Harkki
-DeleteMobF.Name = "DeleteMobF"
-DeleteMobF.Parent = CheatEngineDeleteMob
-DeleteMobF.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-DeleteMobF.BorderColor3 = Color3.fromRGB(255, 255, 255)
-DeleteMobF.Position = UDim2.new(0.144998878, 0, 0.328040659, 0)
-DeleteMobF.Size = UDim2.new(0, 1213, 0, 398)
-DeleteMobF.ZIndex = 10
-DeleteMobF.Draggable = true
-DeleteMobF.Active = true
+HarkkiF.Name = "HarkkiF"
+HarkkiF.Parent = CheatEngineHarkki
+HarkkiF.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+HarkkiF.BorderColor3 = Color3.fromRGB(255, 255, 255)
+HarkkiF.Position = UDim2.new(0.144998878, 0, 0.328040659, 0)
+HarkkiF.Size = UDim2.new(0, 1213, 0, 398)
+HarkkiF.ZIndex = 10
+HarkkiF.Draggable = true
+HarkkiF.Active = true
 
-TextBox.Parent = DeleteMobF
+TextBox.Parent = HarkkiF
 TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.BackgroundTransparency = 1.000
 TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -577,7 +577,7 @@ TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.TextSize = 14.000
 
 Name.Name = "Name"
-Name.Parent = DeleteMobF
+Name.Parent = HarkkiF
 Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Name.BackgroundTransparency = 1.000
 Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -585,12 +585,12 @@ Name.BorderSizePixel = 0
 Name.Position = UDim2.new(0.0178597774, 0, 0.00456260797, 0)
 Name.Size = UDim2.new(0, 200, 0, 31)
 Name.Font = Enum.Font.Gotham
-Name.Text = "DeleteMob | Cheat Engine"
+Name.Text = "Harkki | Cheat Engine"
 Name.TextColor3 = Color3.fromRGB(17, 223, 255)
 Name.TextSize = 19.000
 
 Line.Name = "Line"
-Line.Parent = DeleteMobF
+Line.Parent = HarkkiF
 Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Line.BorderSizePixel = 0
@@ -598,7 +598,7 @@ Line.Position = UDim2.new(0, 0, 0.0804020092, 0)
 Line.Size = UDim2.new(0, 1213, 0, 1)
 
 Line_2.Name = "Line"
-Line_2.Parent = DeleteMobF
+Line_2.Parent = HarkkiF
 Line_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Line_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Line_2.BorderSizePixel = 0
@@ -606,7 +606,7 @@ Line_2.Position = UDim2.new(0.205276027, 0, 0.0828348249, 0)
 Line_2.Size = UDim2.new(0, 1, 0, 365)
 -- Made By Harkki
 AimBotSection.Name = "AimBotSection"
-AimBotSection.Parent = DeleteMobF
+AimBotSection.Parent = HarkkiF
 AimBotSection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AimBotSection.BackgroundTransparency = 1.000
 AimBotSection.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -822,7 +822,7 @@ Allways_Show.Text = "HEAD, torso"
 Allways_Show.TextColor3 = Color3.fromRGB(255, 255, 255)
 Allways_Show.TextSize = 16.000
 
-TextLabel_4.Parent = DeleteMobF
+TextLabel_4.Parent = HarkkiF
 TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_4.BackgroundTransparency = 1.000
 TextLabel_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -836,7 +836,7 @@ TextLabel_4.TextSize = 18.000
 TextLabel_4.TextXAlignment = Enum.TextXAlignment.Left
 
 ESPSection.Name = "ESPSection"
-ESPSection.Parent = DeleteMobF
+ESPSection.Parent = HarkkiF
 ESPSection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ESPSection.BackgroundTransparency = 1.000
 ESPSection.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1001,7 +1001,7 @@ Box_B.Text = "10"
 Box_B.TextColor3 = Color3.fromRGB(255, 255, 255)
 Box_B.TextSize = 14.000
 
-TextLabel_8.Parent = DeleteMobF
+TextLabel_8.Parent = HarkkiF
 TextLabel_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_8.BackgroundTransparency = 1.000
 TextLabel_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1015,7 +1015,7 @@ TextLabel_8.TextSize = 18.000
 TextLabel_8.TextXAlignment = Enum.TextXAlignment.Left
 
 ESPSection_2.Name = "ESPSection"
-ESPSection_2.Parent = DeleteMobF
+ESPSection_2.Parent = HarkkiF
 ESPSection_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ESPSection_2.BackgroundTransparency = 1.000
 ESPSection_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1311,7 +1311,7 @@ FillOutlines_B.TextColor3 = Color3.fromRGB(255, 255, 255)
 FillOutlines_B.TextSize = 14.000
 -- Made By Harkki
 Tracerssection.Name = "Tracers section"
-Tracerssection.Parent = DeleteMobF
+Tracerssection.Parent = HarkkiF
 Tracerssection.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Tracerssection.BackgroundTransparency = 1.000
 Tracerssection.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1408,7 +1408,7 @@ Tracers_B.TextColor3 = Color3.fromRGB(255, 255, 255)
 Tracers_B.TextSize = 14.000
 -- Made By Harkki
 Unknown.Name = "Unknown"
-Unknown.Parent = DeleteMobF
+Unknown.Parent = HarkkiF
 Unknown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Unknown.BackgroundTransparency = 1.000
 Unknown.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -1446,13 +1446,13 @@ TextLabel_14.TextColor3 = Color3.fromRGB(17, 223, 255)
 TextLabel_14.TextSize = 18.000
 
 Open.Name = "Open"
-Open.Parent = CheatEngineDeleteMob
+Open.Parent = CheatEngineHarkki
 Open.BackgroundColor3 = Color3.fromRGB(51, 51, 51)
 Open.BorderColor3 = Color3.fromRGB(255, 255, 255)
 Open.Position = UDim2.new(0.5, 0, 0.0199999996, 0)
 Open.Size = UDim2.new(0, 150, 0, 50)
 Open.ZIndex = 10
-Open.Visible = DeleteMob.GUi.OpenNCloseButton
+Open.Visible = Harkki.GUi.OpenNCloseButton
 Open.Draggable = true
 Open.Active = true
 
@@ -1467,41 +1467,41 @@ TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextButton.TextSize = 14.000
 
 PLAYER:GetMouse().KeyDown:Connect(function(KeyPressed) -- What The Fuck
-	if KeyPressed == (DeleteMob.GUi.Keybind) and DeleteMob.GUi.KeybindEnable then
-        if DeleteMobF.Visible == true then
-            DeleteMobF.Visible = false
+	if KeyPressed == (Harkki.GUi.Keybind) and Harkki.GUi.KeybindEnable then
+        if HarkkiF.Visible == true then
+            HarkkiF.Visible = false
         else
-            DeleteMobF.Visible = true
+            HarkkiF.Visible = true
         end
     end
-    if KeyPressed == (DeleteMob.Aimbot.Keybind) and DeleteMob.Aimbot.Enabled then
-        DeleteMob.Aimbot.IsAimKeyDown = true
+    if KeyPressed == (Harkki.Aimbot.Keybind) and Harkki.Aimbot.Enabled then
+        Harkki.Aimbot.IsAimKeyDown = true
     end
 end)
 PLAYER:GetMouse().KeyUp:Connect(function(KeyPressed) 
-    if KeyPressed == (DeleteMob.Aimbot.Keybind) and DeleteMob.Aimbot.Enabled then
-        DeleteMob.Aimbot.IsAimKeyDown = false
+    if KeyPressed == (Harkki.Aimbot.Keybind) and Harkki.Aimbot.Enabled then
+        Harkki.Aimbot.IsAimKeyDown = false
     end
 end)
 
 PLAYER:GetMouse().Button1Down:Connect(function()
-    if DeleteMob.Aimbot.Keybind == "MouseButton1" and DeleteMob.Aimbot.Enabled then
-        DeleteMob.Aimbot.IsAimKeyDown = true
+    if Harkki.Aimbot.Keybind == "MouseButton1" and Harkki.Aimbot.Enabled then
+        Harkki.Aimbot.IsAimKeyDown = true
     end
 end)
 PLAYER:GetMouse().Button1Up:Connect(function()
-    if DeleteMob.Aimbot.Keybind == "MouseButton1" and DeleteMob.Aimbot.Enabled then
-        DeleteMob.Aimbot.IsAimKeyDown = false
+    if Harkki.Aimbot.Keybind == "MouseButton1" and Harkki.Aimbot.Enabled then
+        Harkki.Aimbot.IsAimKeyDown = false
     end
 end)
 PLAYER:GetMouse().Button2Down:Connect(function()
-    if DeleteMob.Aimbot.Keybind == "MouseButton2" and DeleteMob.Aimbot.Enabled then
-        DeleteMob.Aimbot.IsAimKeyDown = true
+    if Harkki.Aimbot.Keybind == "MouseButton2" and Harkki.Aimbot.Enabled then
+        Harkki.Aimbot.IsAimKeyDown = true
     end
 end)
 PLAYER:GetMouse().Button2Up:Connect(function()
-    if DeleteMob.Aimbot.Keybind == "MouseButton2" and DeleteMob.Aimbot.Enabled then
-        DeleteMob.Aimbot.IsAimKeyDown = false
+    if Harkki.Aimbot.Keybind == "MouseButton2" and Harkki.Aimbot.Enabled then
+        Harkki.Aimbot.IsAimKeyDown = false
     end
 end)
 
@@ -1509,50 +1509,50 @@ end)
 ABE.MouseButton1Click:Connect(function()
 	if ABE.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		ABE.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.Aimbot.Enabled = true
+		Harkki.Aimbot.Enabled = true
 	else
 		ABE.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.Aimbot.Enabled = false	
+		Harkki.Aimbot.Enabled = false	
 	end
 end)
 
 ABSF.MouseButton1Click:Connect(function()
 	if ABSF.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		ABSF.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.Aimbot.ShowFov = true
+		Harkki.Aimbot.ShowFov = true
 	else
 		ABSF.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.Aimbot.ShowFov = false	
+		Harkki.Aimbot.ShowFov = false	
 	end
 end)
 
 ABTC.MouseButton1Click:Connect(function()
 	if ABTC.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		ABTC.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.Aimbot.TeamCheck = true
+		Harkki.Aimbot.TeamCheck = true
 	else
 		ABTC.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.Aimbot.TeamCheck = false	
+		Harkki.Aimbot.TeamCheck = false	
 	end
 end)
 
 ABWC.MouseButton1Click:Connect(function()
 	if ABWC.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		ABWC.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.Aimbot.WallCheck = true
+		Harkki.Aimbot.WallCheck = true
 	else
 		ABWC.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.Aimbot.WallCheck = false	
+		Harkki.Aimbot.WallCheck = false	
 	end
 end)
 
 Allways_Show.MouseButton1Click:Connect(function()
-	if DeleteMob.Aimbot.AimPart == "Head" then
+	if Harkki.Aimbot.AimPart == "Head" then
 		Allways_Show.Text = "head, TORSO"
-		DeleteMob.Aimbot.AimPart = "HumanoidRootPart"
+		Harkki.Aimbot.AimPart = "HumanoidRootPart"
 	else
 		Allways_Show.Text = "HEAD, torso"
-		DeleteMob.Aimbot.AimPart = "Head"
+		Harkki.Aimbot.AimPart = "Head"
 	end
 end)
 
@@ -1561,63 +1561,63 @@ end)
 BBD.MouseButton1Click:Connect(function()
 	if BBD.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		BBD.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Box.Distance = true
+		Harkki.ESP.Box.Distance = true
 	else
 		BBD.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Box.Distance = false	
+		Harkki.ESP.Box.Distance = false	
 	end
 end)
 
 BBE.MouseButton1Click:Connect(function()
 	if BBE.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		BBE.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Box.Box = true
+		Harkki.ESP.Box.Box = true
 	else
 		BBE.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Box.Box = false	
+		Harkki.ESP.Box.Box = false	
 	end
 end)
 
 BBH.MouseButton1Click:Connect(function()
 	if BBH.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		BBH.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Box.Health = true
+		Harkki.ESP.Box.Health = true
 	else
 		BBH.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Box.Health = false	
+		Harkki.ESP.Box.Health = false	
 	end
 end)
 
 BBHT.MouseButton1Click:Connect(function()
-	if DeleteMob.ESP.Box.HealthType == "Bar" then
+	if Harkki.ESP.Box.HealthType == "Bar" then
 		BBHT.Text = "bar, TEXT, both"
-		DeleteMob.ESP.Box.HealthType = "Text"
-	elseif DeleteMob.ESP.Box.HealthType == "Text" then
+		Harkki.ESP.Box.HealthType = "Text"
+	elseif Harkki.ESP.Box.HealthType == "Text" then
 		BBHT.Text = "bar, text, BOTH"
-		DeleteMob.ESP.Box.HealthType = "Both"
-	elseif DeleteMob.ESP.Box.HealthType == "Both" then
+		Harkki.ESP.Box.HealthType = "Both"
+	elseif Harkki.ESP.Box.HealthType == "Both" then
 		BBHT.Text = "BAR, text, both"
-		DeleteMob.ESP.Box.HealthType = "Bar"
+		Harkki.ESP.Box.HealthType = "Bar"
 	end
 end)
 
 BBN.MouseButton1Click:Connect(function()
 	if BBN.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		BBN.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Box.Name = true
+		Harkki.ESP.Box.Name = true
 	else
 		BBN.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Box.Name = false	
+		Harkki.ESP.Box.Name = false	
 	end
 end)
 
 BTC.MouseButton1Click:Connect(function()
 	if BTC.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		BTC.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Box.TeamCheck = true
+		Harkki.ESP.Box.TeamCheck = true
 	else
 		BTC.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Box.TeamCheck = false	
+		Harkki.ESP.Box.TeamCheck = false	
 	end
 end)
 -- Outlines
@@ -1625,20 +1625,20 @@ end)
 OE.MouseButton1Click:Connect(function()
 	if OE.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		OE.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.OutLines.Enabled = true
+		Harkki.ESP.OutLines.Enabled = true
 	else
 		OE.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.OutLines.Enabled = false	
+		Harkki.ESP.OutLines.Enabled = false	
 	end
 end)
 
 OTC.MouseButton1Click:Connect(function()
 	if OTC.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		OTC.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.OutLines.TeamCheck = true
+		Harkki.ESP.OutLines.TeamCheck = true
 	else
 		OTC.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.OutLines.TeamCheck = false	
+		Harkki.ESP.OutLines.TeamCheck = false	
 	end
 end)
 
@@ -1647,40 +1647,40 @@ end)
 TE.MouseButton1Click:Connect(function()
 	if TE.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		TE.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Tracers.Enabled = true
+		Harkki.ESP.Tracers.Enabled = true
 	else
 		TE.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Tracers.Enabled = false	
+		Harkki.ESP.Tracers.Enabled = false	
 	end
 end)
 
 TTC.MouseButton1Click:Connect(function()
 	if TTC.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		TTC.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Tracers.TeamCheck = true
+		Harkki.ESP.Tracers.TeamCheck = true
 	else
 		TTC.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Tracers.TeamCheck = false	
+		Harkki.ESP.Tracers.TeamCheck = false	
 	end
 end)
 
 TTCOlor.MouseButton1Click:Connect(function()
 	if TTCOlor.BackgroundColor3 == Color3.fromRGB(52, 52, 52) then
 		TTCOlor.BackgroundColor3 = Color3.fromRGB(2, 54, 8)
-		DeleteMob.ESP.Tracers.TeamColor = true
+		Harkki.ESP.Tracers.TeamColor = true
 	else
 		TTCOlor.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
-		DeleteMob.ESP.Tracers.TeamColor = false	
+		Harkki.ESP.Tracers.TeamColor = false	
 	end
 end)
 
 -- UI Toggle
 
 TextButton.MouseButton1Click:Connect(function()
-	if DeleteMobF.Visible == true then
-		DeleteMobF.Visible = false
+	if HarkkiF.Visible == true then
+		HarkkiF.Visible = false
 	else
-		DeleteMobF.Visible = true
+		HarkkiF.Visible = true
 	end
 end)
 
@@ -1697,8 +1697,8 @@ local function LDTZWMY_fake_script() -- Slider3.Script1
 	local maxvalue = 7 or 700/700
 	local startingvalue = 0 or 0/100
 	
-	Fill.Size = UDim2.fromScale(DeleteMob.Aimbot.Fov,1)
-	TextNumbers.Text = tostring(math.round(DeleteMob.Aimbot.Fov*100))
+	Fill.Size = UDim2.fromScale(Harkki.Aimbot.Fov,1)
+	TextNumbers.Text = tostring(math.round(Harkki.Aimbot.Fov*100))
 	
 	local TweenService = game:GetService("TweenService")
 	local TweenStyle =  TweenInfo.new(0.25, Enum.EasingStyle.Exponential)
@@ -1706,16 +1706,16 @@ local function LDTZWMY_fake_script() -- Slider3.Script1
 	local function UpdateSlider()
 		local OutPut = math.clamp(((Vector2.new(Mouse.X,Mouse.Y)-Slider.AbsolutePosition)/Slider.AbsoluteSize).X,0,1)
 		
-		if DeleteMob.Aimbot.Fov ~= OutPut then
+		if Harkki.Aimbot.Fov ~= OutPut then
 			TweenService:Create(Fill,TweenStyle,{Size = UDim2.fromScale(OutPut,1)}):Play()
 		end
 		
-		DeleteMob.Aimbot.Fov = (startingvalue +(OutPut*(maxvalue-startingvalue)))*100
-		TextNumbers.Text = tostring(math.round(DeleteMob.Aimbot.Fov*100))
+		Harkki.Aimbot.Fov = (startingvalue +(OutPut*(maxvalue-startingvalue)))*100
+		TextNumbers.Text = tostring(math.round(Harkki.Aimbot.Fov*100))
 	end
 	
 	Fill:GetPropertyChangedSignal("Size"):Connect(function()
-		TextNumbers.Text = tostring(math.round(DeleteMob.Aimbot.Fov*100))
+		TextNumbers.Text = tostring(math.round(Harkki.Aimbot.Fov*100))
 	end)
 	
 	local SliderActive = false
@@ -1748,8 +1748,8 @@ local function YEOE_fake_script() -- Slider4.Script2
 	local maxvalue = 3 or 30/30
 	local startingvalue = 0 or 0/100
 	
-	Fill.Size = UDim2.fromScale(DeleteMob.Aimbot.Smoothing,1)
-	TextNumbers.Text = tostring(math.round(DeleteMob.Aimbot.Smoothing*100))
+	Fill.Size = UDim2.fromScale(Harkki.Aimbot.Smoothing,1)
+	TextNumbers.Text = tostring(math.round(Harkki.Aimbot.Smoothing*100))
 	
 	local TweenService = game:GetService("TweenService")
 	local TweenStyle =  TweenInfo.new(0.25, Enum.EasingStyle.Exponential)
@@ -1757,16 +1757,16 @@ local function YEOE_fake_script() -- Slider4.Script2
 	local function UpdateSlider()
 		local OutPut = math.clamp(((Vector2.new(Mouse.X,Mouse.Y)-Slider.AbsolutePosition)/Slider.AbsoluteSize).X,0,1)
 		
-		if DeleteMob.Aimbot.Smoothing ~= OutPut then
+		if Harkki.Aimbot.Smoothing ~= OutPut then
 			TweenService:Create(Fill,TweenStyle,{Size = UDim2.fromScale(OutPut,1)}):Play()
 		end
 		
-		DeleteMob.Aimbot.Smoothing = startingvalue +(OutPut*(maxvalue-startingvalue))
-		TextNumbers.Text = tostring(math.round(DeleteMob.Aimbot.Smoothing*100))
+		Harkki.Aimbot.Smoothing = startingvalue +(OutPut*(maxvalue-startingvalue))
+		TextNumbers.Text = tostring(math.round(Harkki.Aimbot.Smoothing*100))
 	end
 	
 	Fill:GetPropertyChangedSignal("Size"):Connect(function()
-		TextNumbers.Text = tostring(math.round(DeleteMob.Aimbot.Smoothing*100))
+		TextNumbers.Text = tostring(math.round(Harkki.Aimbot.Smoothing*100))
 	end)
 	
 	local SliderActive = false
@@ -1799,8 +1799,8 @@ local function GOUU_fake_script() -- Slider1.Script3
 	local maxvalue = 1 or 100/100
 	local startingvalue = 0 or 0/100
 	
-	Fill.Size = UDim2.fromScale(DeleteMob.ESP.OutLines.OutlineTrancparency,1)
-	TextNumbers.Text = tostring(math.round(DeleteMob.ESP.OutLines.OutlineTrancparency*100))
+	Fill.Size = UDim2.fromScale(Harkki.ESP.OutLines.OutlineTrancparency,1)
+	TextNumbers.Text = tostring(math.round(Harkki.ESP.OutLines.OutlineTrancparency*100))
 	
 	local TweenService = game:GetService("TweenService")
 	local TweenStyle =  TweenInfo.new(0.25, Enum.EasingStyle.Exponential)
@@ -1808,16 +1808,16 @@ local function GOUU_fake_script() -- Slider1.Script3
 	local function UpdateSlider()
 		local OutPut = math.clamp(((Vector2.new(Mouse.X,Mouse.Y)-Slider.AbsolutePosition)/Slider.AbsoluteSize).X,0,1)
 		
-		if DeleteMob.ESP.OutLines.OutlineTrancparency ~= OutPut then
+		if Harkki.ESP.OutLines.OutlineTrancparency ~= OutPut then
 			TweenService:Create(Fill,TweenStyle,{Size = UDim2.fromScale(OutPut,1)}):Play()
 		end
 		
-		DeleteMob.ESP.OutLines.OutlineTrancparency = startingvalue +(OutPut*(maxvalue-startingvalue))
-		TextNumbers.Text = tostring(math.round(DeleteMob.ESP.OutLines.OutlineTrancparency*100))
+		Harkki.ESP.OutLines.OutlineTrancparency = startingvalue +(OutPut*(maxvalue-startingvalue))
+		TextNumbers.Text = tostring(math.round(Harkki.ESP.OutLines.OutlineTrancparency*100))
 	end
 	
 	Fill:GetPropertyChangedSignal("Size"):Connect(function()
-		TextNumbers.Text = tostring(math.round(DeleteMob.ESP.OutLines.OutlineTrancparency*100))
+		TextNumbers.Text = tostring(math.round(Harkki.ESP.OutLines.OutlineTrancparency*100))
 	end)
 	
 	local SliderActive = false
@@ -1850,8 +1850,8 @@ local function MMUKLB_fake_script() -- Slider2.Script4
 	local maxvalue = 1 or 100/100
 	local startingvalue = 0 or 0/100
 	
-	Fill.Size = UDim2.fromScale(DeleteMob.ESP.OutLines.FillTrancparenct,1)
-	TextNumbers.Text = tostring(math.round(DeleteMob.ESP.OutLines.FillTrancparenct*100))
+	Fill.Size = UDim2.fromScale(Harkki.ESP.OutLines.FillTrancparenct,1)
+	TextNumbers.Text = tostring(math.round(Harkki.ESP.OutLines.FillTrancparenct*100))
 	
 	local TweenService = game:GetService("TweenService")
 	local TweenStyle =  TweenInfo.new(0.25, Enum.EasingStyle.Exponential)
@@ -1859,16 +1859,16 @@ local function MMUKLB_fake_script() -- Slider2.Script4
 	local function UpdateSlider()
 		local OutPut = math.clamp(((Vector2.new(Mouse.X,Mouse.Y)-Slider.AbsolutePosition)/Slider.AbsoluteSize).X,0,1)
 		
-		if DeleteMob.ESP.OutLines.FillTrancparenct ~= OutPut then
+		if Harkki.ESP.OutLines.FillTrancparenct ~= OutPut then
 			TweenService:Create(Fill,TweenStyle,{Size = UDim2.fromScale(OutPut,1)}):Play()
 		end
 		
-		DeleteMob.ESP.OutLines.FillTrancparenct = startingvalue +(OutPut*(maxvalue-startingvalue))
-		TextNumbers.Text = tostring(math.round(DeleteMob.ESP.OutLines.FillTrancparenct*100))
+		Harkki.ESP.OutLines.FillTrancparenct = startingvalue +(OutPut*(maxvalue-startingvalue))
+		TextNumbers.Text = tostring(math.round(Harkki.ESP.OutLines.FillTrancparenct*100))
 	end
 	
 	Fill:GetPropertyChangedSignal("Size"):Connect(function()
-		TextNumbers.Text = tostring(math.round(DeleteMob.ESP.OutLines.FillTrancparenct*100))
+		TextNumbers.Text = tostring(math.round(Harkki.ESP.OutLines.FillTrancparenct*100))
 	end)
 	
 	local SliderActive = false
@@ -1896,32 +1896,32 @@ coroutine.wrap(MMUKLB_fake_script)()
 game:GetService('RunService').RenderStepped:connect(function()
 
 	-- Aimbot Check
-	if DeleteMob.Aimbot.IsAimKeyDown then
-        local _pos = CameraGetClosestToMouse(DeleteMob.Aimbot.Fov)
+	if Harkki.Aimbot.IsAimKeyDown then
+        local _pos = CameraGetClosestToMouse(Harkki.Aimbot.Fov)
         if _pos then
-            aimAt(_pos, DeleteMob.Aimbot.Smoothing)
+            aimAt(_pos, Harkki.Aimbot.Smoothing)
         end
     end
 
 	-- Fov
-	local acc = DeleteMob.Aimbot.Smoothing / 2	
+	local acc = Harkki.Aimbot.Smoothing / 2	
 	local posd = UIS:GetMouseLocation() 
 	FOVFFrame.Position = UDim2.new(0, posd.X, 0, posd.Y - 36)
-	FOVFFrame.Size = UDim2.new(0, DeleteMob.Aimbot.Fov + acc, 0, DeleteMob.Aimbot.Fov + acc)
-	FOVFFrame.Visible = DeleteMob.Aimbot.ShowFov
-	FOVFFrame.BackgroundColor3 = DeleteMob.Aimbot.FovFillColor
-	FOVFFrame.Transparency = DeleteMob.Aimbot.FovFillTransparency
+	FOVFFrame.Size = UDim2.new(0, Harkki.Aimbot.Fov + acc, 0, Harkki.Aimbot.Fov + acc)
+	FOVFFrame.Visible = Harkki.Aimbot.ShowFov
+	FOVFFrame.BackgroundColor3 = Harkki.Aimbot.FovFillColor
+	FOVFFrame.Transparency = Harkki.Aimbot.FovFillTransparency
 
-	UIStroke.Color = DeleteMob.Aimbot.FovFillColor
-	UIStroke.Transparency = DeleteMob.Aimbot.FovTransparenct
-	UIStroke.Thickness = DeleteMob.Aimbot.Thickness
+	UIStroke.Color = Harkki.Aimbot.FovFillColor
+	UIStroke.Transparency = Harkki.Aimbot.FovTransparenct
+	UIStroke.Thickness = Harkki.Aimbot.Thickness
 	
 	-- Colors 
 	
-	DeleteMob.ESP.Box.BoxColor = Color3.fromRGB(tonumber(Box_R.Text), tonumber(Box_G.Text), tonumber(Box_B.Text))
-	DeleteMob.ESP.OutLines.FillCollor = Color3.fromRGB(tonumber(FillOutlines_R.Text), tonumber(FillOutlines_G.Text), tonumber(FillOutlines_B.Text))
-	DeleteMob.ESP.OutLines.OutlineColor = Color3.fromRGB(tonumber(Outlines_R.Text), tonumber(Outlines_G.Text), tonumber(Outlines_B.Text))
-	DeleteMob.ESP.Tracers.Color = Color3.fromRGB(tonumber(Tracers_R.Text), tonumber(Tracers_G.Text), tonumber(Tracers_B.Text))
+	Harkki.ESP.Box.BoxColor = Color3.fromRGB(tonumber(Box_R.Text), tonumber(Box_G.Text), tonumber(Box_B.Text))
+	Harkki.ESP.OutLines.FillCollor = Color3.fromRGB(tonumber(FillOutlines_R.Text), tonumber(FillOutlines_G.Text), tonumber(FillOutlines_B.Text))
+	Harkki.ESP.OutLines.OutlineColor = Color3.fromRGB(tonumber(Outlines_R.Text), tonumber(Outlines_G.Text), tonumber(Outlines_B.Text))
+	Harkki.ESP.Tracers.Color = Color3.fromRGB(tonumber(Tracers_R.Text), tonumber(Tracers_G.Text), tonumber(Tracers_B.Text))
 end)
 
 
